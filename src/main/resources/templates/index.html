@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Roommate</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <div th:replace="fragments/header :: header"></div>
+        <div th:replace="fragments/sidebar :: sidebar"></div>
+        <div class="content-wrapper">
+            <div class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1 class="m-0">Bienvenido, <span th:text="${#authentication.principal.username}"></span>!</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content">
+                <div class="container-fluid">
+                    <div sec:authorize="hasRole('ROLE_ADMIN')">
+                        <div th:replace="admin/index :: content"></div>
+                    </div>
+                    <div sec:authorize="hasRole('ROLE_RECEPCIONISTA')">
+                        <div th:replace="recep/index :: content"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="control-sidebar control-sidebar-dark">
+            <div class="p-3">
+                <h5>Title</h5>
+                <p>Sidebar content</p>
+            </div>
+        </div>
+        <footer class="main-footer">
+            <div class="float-right d-none d-sm-inline"> Version 0.1.0</div>
+            <strong>Copyright &copy; 2024-2025 <a href="#">Grupo 01</a>. </strong> Todos los derechos reservados.
+        </footer>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>
+</body>
+</html>
