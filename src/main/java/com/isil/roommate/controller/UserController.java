@@ -17,11 +17,11 @@ public class UserController {
     /**
      * Muestra la página principal del área administrativa.
      *
-     * @return La vista "inicio" que representa la página principal del área administrativa.
+     * @return La vista "/" que representa la página principal del área administrativa.
      */
     @GetMapping
     public String index() {
-        return "redirect:/inicio";
+        return "redirect:/";
     }
 
 }
