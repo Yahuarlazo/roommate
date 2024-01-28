@@ -2,8 +2,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
   <head>
     <title>Inicio Sesión</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" th:href="@{/css/adminlte.min.css}">
+    <link rel="stylesheet" th:href="@{/css/fontawesome.all.min.css}">
   </head>
   <body class="hold-transition login-page">
     <div class="login-box">
@@ -52,6 +52,9 @@
             </div>
           </form>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>
+        <script th:src="@{/js/jquery-3.7.1.min.js}"></script>
+        <script th:src="@{/js/jquery.inputmask.min.js}"></script>
+        <script th:src="@{/js/adminlte.min.js}"></script>
+        <script>$('[data-mask]').inputmask()</script>
   </body>
 </html>
